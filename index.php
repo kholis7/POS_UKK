@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <a href="kasir/index.php">Login</a>
+  <a href="pages/index.php">Login</a>
 </body>
 
 </html>
