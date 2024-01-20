@@ -1,12 +1,12 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Data Kasir</h1>
+  <h1 class="mt-4">Data Pelanggan</h1>
   <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">POS UKK SMK YAPIIM INDRAMAYU</li>
   </ol>
 
   <div class="card mb-4">
     <div class="card-body">
-      <table class="table table-striped" id="datatablesSimple">
+      <table id="datatablesSimple">
         <thead>
           <tr>
             <th>Name</th>
