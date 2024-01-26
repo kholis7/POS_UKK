@@ -1,104 +1,79 @@
-<div class="container-fluid px-4">
-  <h1 class="mt-4">Dashboard</h1>
-  <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Dashboard</li>
-  </ol>
-  <div class="row">
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-primary text-white mb-4">
-        <div class="card-body">Data Pelanggan</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Dashboard
+      <small>Aplikasi Kasir || UKK SMK YAPIIM INDRAMAYU</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <!-- Info boxes -->
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">CPU Traffic</span>
+            <span class="info-box-number">90<small>%</small></span>
+          </div>
+          <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
       </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-warning text-white mb-4">
-        <div class="card-body">Data Barang</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Likes</span>
+            <span class="info-box-number">41,410</span>
+          </div>
+          <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
       </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-success text-white mb-4">
-        <div class="card-body">Success Card</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+      <!-- /.col -->
+
+      <!-- fix for small devices only -->
+      <div class="clearfix visible-sm-block"></div>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Sales</span>
+            <span class="info-box-number">760</span>
+          </div>
+          <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
       </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-danger text-white mb-4">
-        <div class="card-body">Danger Card</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">New Members</span>
+            <span class="info-box-number">2,000</span>
+          </div>
+          <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
       </div>
+      <!-- /.col -->
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xl-6">
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-chart-area me-1"></i>
-          Area Chart Example
-        </div>
-        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-      </div>
-    </div>
-    <div class="col-xl-6">
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-chart-bar me-1"></i>
-          Bar Chart Example
-        </div>
-        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-      </div>
-    </div>
-  </div>
-  <div class="card mb-4">
-    <div class="card-header">
-      <i class="fas fa-table me-1"></i>
-      Data Transaksi Terbaru
-    </div>
-    <div class="card-body">
-      <table id="datatablesSimple">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-          </tr>
-        </tfoot>
-        <tbody>
-          <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
