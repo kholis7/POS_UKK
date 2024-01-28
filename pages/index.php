@@ -1,5 +1,6 @@
 <?php
 include "../config/koneksi.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,7 @@ include "../config/koneksi.php";
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>Aplikasi Kasir || UKK SMK YAPIIM</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -118,7 +119,7 @@ include "../config/koneksi.php";
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
           <li>
-            <a href="#">
+            <a href="index.php">
               <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
           </li>
@@ -132,9 +133,9 @@ include "../config/koneksi.php";
             </a>
             <ul class="treeview-menu">
               <li><a href="index.php?page=pelanggan_data"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Produk</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Kategori</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Kasir</a></li>
+              <li><a href="index.php?page=barang_data"><i class="fa fa-circle-o"></i> Data Produk</a></li>
+              <li><a href="index.php?page=kategori_data"><i class="fa fa-circle-o"></i> Data Kategori</a></li>
+              <li><a href="index.php?page=kasir_data"><i class="fa fa-circle-o"></i> Data Kasir</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -146,7 +147,7 @@ include "../config/koneksi.php";
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Transaksi</a></li>
+              <li><a href="index.php?page=transaksi_data"><i class="fa fa-circle-o"></i> Data Transaksi</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Tambah Transaksi</a></li>
             </ul>
           </li>

@@ -3,11 +3,11 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      DATA SISWA
+      DATA PELANGGAN
     </h1>
     <ol class="breadcrumb">
-      <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Data Siswa</li>
+      <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li class="active">Data Pelanggan</li>
     </ol>
   </section>
 
@@ -17,7 +17,7 @@
       <div class="col-xs-12">
         <div class="box box-primary">
           <div class="box-header">
-            <a href="index.php?page=tambah_siswa" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
+            <a href="index.php?page=pelanggan_tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
               Tambah
             </a>
           </div>
@@ -45,8 +45,9 @@
                     <td><?php echo $pelanggan['alamat']; ?></td>
                     <td><?php echo $pelanggan['no_telp']; ?></td>
                     <td>
-                      <a href="#">Edit</a>
-                      <a href="#">Hapus</a>
+                      <a href="index.php?page=pelanggan_ubah&id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-warning" role="button" title="Edit Data"><i class="glyphicon glyphicon-edit"></i></a>
+                      <a href="index.php?page=pelanggan_detail&id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
+                      <a href="index.php?page=pelanggan_hapus.php?id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>
               <?php } ?>

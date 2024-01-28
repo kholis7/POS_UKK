@@ -4,8 +4,8 @@ if (isset($_GET['page'])) {
 
   switch ($page) {
       //Kasir
-    case 'data_kasir':
-      include 'kasir/data_kasir.php';
+    case 'kasir_data':
+      include 'kasir/kasir_data.php';
       break;
 
       //Pelanggan

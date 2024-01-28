@@ -3,11 +3,11 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      DATA KATEGORI
+      DATA KASIR
     </h1>
     <ol class="breadcrumb">
       <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      <li class="active">Data Kategori</li>
+      <li class="active">Data Kasir</li>
     </ol>
   </section>
 
@@ -17,7 +17,7 @@
       <div class="col-xs-12">
         <div class="box box-primary">
           <div class="box-header">
-            <a href="index.php?page=kategori_tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
+            <a href="index.php?page=kasir_tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
               Tambah
             </a>
           </div>
@@ -27,22 +27,27 @@
               <thead>
                 <tr>
                   <th>NO</th>
-                  <th>NAMA KATEGORI</th>
+                  <th>NAMA KASIR</th>
+                  <th>USERNAME</th>
+                  <th>ROLE</th>
                   <th>OPSI</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <?php
-                  $dt_kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                  $dt_user = mysqli_query($koneksi, "SELECT * FROM user");
                   $no = 1;
-                  while ($kategori = mysqli_fetch_array($dt_kategori)) {
+                  while ($user = mysqli_fetch_array($dt_user)) {
                   ?>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $kategori['nm_kategori']; ?></td>
+                    <td><?php echo $user['nm_user']; ?></td>
+                    <td><?php echo $user['username']; ?></td>
+                    <td><?php echo $user['role']; ?></td>
                     <td>
-                      <a href="index.php?page=kategori_ubah&id_kategori=<?= $kategori['id_kategori']; ?>" class="btn btn-xs btn-warning" role="button" title="Edit Data"><i class="glyphicon glyphicon-edit"></i></a>
-                      <a href="index.php?page=kategori_hapus.php?id_kategori=<?= $kategori['id_kategori']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
+                      <a href="index.php?page=user_ubah&id_user=<?= $user['id_user']; ?>" class="btn btn-xs btn-warning" role="button" title="Edit Data"><i class="glyphicon glyphicon-edit"></i></a>
+                      <a href="index.php?page=user_detail&id_user=<?= $user['id_user']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
+                      <a href="index.php?page=user_hapus.php?id_user=<?= $user['id_user']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>
               <?php } ?>
