@@ -38,7 +38,7 @@
                 <tr>
                   <?php
                   $dt_produk = mysqli_query($koneksi, "SELECT * FROM produk
-            INNER JOIN kategori ON kategori.id_kategori = produk.id_kategori");
+                  INNER JOIN kategori ON kategori.id_kategori = produk.id_kategori");
                   $no = 1;
                   while ($produk = mysqli_fetch_array($dt_produk)) {
                   ?>

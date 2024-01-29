@@ -1,64 +1,72 @@
-<div class="container-fluid px-4 mt-4">
-  <div class="row">
-    <div class="col-xl-3">
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-chart-area me-1"></i>
-          Data Pelanggan
-        </div>
-        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-      </div>
-    </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      DATA TRANSAKSI
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li class="active">Data Transaksi</li>
+    </ol>
+  </section>
 
-  </div>
-  <div class="row">
-    <div class="col-xl-6">
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-chart-area me-1"></i>
-          Area Chart Example
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box box-primary">
+          <div class="box-header">
+            <a href="index.php?page=transaksi_tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
+              Tambah
+            </a>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>TANGGAL PENJUALAN</th>
+                  <th>TOTAL</th>
+                  <th>NAMA PELANGGAN</th>
+                  <th>KASIR</th>
+                  <th>OPSI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php
+                  $dt_transaksi = mysqli_query($koneksi, "SELECT * FROM penjualan
+                  INNER JOIN user ON user.id_user = penjualan.id_user
+                  INNER JOIN pelanggan ON pelanggan.id_pelanggan = penjualan.id_pelanggan
+                  ");
+                  $no = 1;
+                  while ($transaksi = mysqli_fetch_array($dt_transaksi)) {
+                  ?>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $transaksi['tgl_penjualan']; ?></td>
+                    <td><?php echo "Rp. " . number_format($transaksi['total']) . " ,-"; ?></td>
+                    <td><?php echo $transaksi['nm_pelanggan']; ?></td>
+                    <td><?php echo $transaksi['nm_user']; ?></td>
+                    <td>
+                      <a href="index.php?page=transaksi_ubah&id_penjualan=<?= $transaksi['id_penjualan']; ?>" class="btn btn-xs btn-warning" role="button" title="Edit Data"><i class="glyphicon glyphicon-edit"></i></a>
+                      <a href="index.php?page=transaksi_detail&id_penjualan=<?= $transaksi['id_penjualan']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
+                      <a href="index.php?page=transaksi_hapus.php?id_penjualan=<?= $transaksi['id_penjualan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tr>
+              <?php } ?>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.box-body -->
         </div>
-        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+        <!-- /.box -->
       </div>
+      <!-- /.col -->
     </div>
-    <div class="col-xl-6">
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-chart-bar me-1"></i>
-          Bar Chart Example
-        </div>
-        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-      </div>
-    </div>
-  </div>
-  <div class="card mb-4">
-    <div class="card-header">
-      <i class="fas fa-table me-1"></i>
-      Data Transaksi Terbaru
-    </div>
-    <div class="card-body">
-      <table id="datatablesSimple">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
