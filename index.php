@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <a href="pages/index.php">Login</a>
+  <a href="admin/index.php">Login</a>
 </body>
 
 </html>

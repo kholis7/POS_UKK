@@ -118,10 +118,10 @@ include "../config/koneksi.php";
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="index.php?page=pelanggan_data"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
-              <li><a href="index.php?page=barang_data"><i class="fa fa-circle-o"></i> Data Produk</a></li>
-              <li><a href="index.php?page=kategori_data"><i class="fa fa-circle-o"></i> Data Kategori</a></li>
-              <li><a href="index.php?page=kasir_data"><i class="fa fa-circle-o"></i> Data Kasir</a></li>
+              <li><a href="pelanggan_data.php"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
+              <li><a href="barang_data.php"><i class="fa fa-circle-o"></i> Data Produk</a></li>
+              <li><a href="kategori_data.php"><i class="fa fa-circle-o"></i> Data Kategori</a></li>
+              <li><a href="kasir_data.php"><i class="fa fa-circle-o"></i> Data Kasir</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -133,7 +133,7 @@ include "../config/koneksi.php";
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="index.php?page=transaksi_data"><i class="fa fa-circle-o"></i> Data Transaksi</a></li>
+              <li><a href="transaksi_data.php"><i class="fa fa-circle-o"></i> Data Transaksi</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Tambah Transaksi</a></li>
             </ul>
           </li>
@@ -145,44 +145,3 @@ include "../config/koneksi.php";
       </section>
       <!-- /.sidebar -->
     </aside>
-
-    <main>
-      <?php
-      include "set_page.php";
-      ?>
-    </main>
-
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.13
-      </div>
-      <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-      reserved.
-    </footer>
-  </div>
-  <!-- ./wrapper -->
-
-  <!-- jQuery 3 -->
-  <script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- FastClick -->
-  <script src="../assets/bower_components/fastclick/lib/fastclick.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../assets/dist/js/adminlte.min.js"></script>
-  <!-- Sparkline -->
-  <script src="../assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-  <!-- jvectormap  -->
-  <script src="../assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-  <script src="../assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <!-- SlimScroll -->
-  <script src="../assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  <!-- ChartJS -->
-  <script src="../assets/bower_components/chart.js/Chart.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="../assets/dist/js/pages/dashboard2.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../assets/dist/js/demo.js"></script>
-</body>
-
-</html>

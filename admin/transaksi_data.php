@@ -1,3 +1,6 @@
+<?php
+include "header.php";
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -17,7 +20,7 @@
       <div class="col-xs-12">
         <div class="box box-primary">
           <div class="box-header">
-            <a href="index.php?page=transaksi_tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
+            <a href="transaksi_tambah.php" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
               Tambah
             </a>
           </div>
@@ -70,3 +73,6 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<?php
+include "footer.php";
+?>
