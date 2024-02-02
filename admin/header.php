@@ -32,6 +32,9 @@ include "../config/koneksi.php";
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+  <!-- jQuery 3 -->
+  <script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
