@@ -6,11 +6,11 @@ include "header.php";
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tambah Transaksi
+      Halaman Transaksi
     </h1>
     <ol class="breadcrumb">
       <li><a href="index.php"><i class="fa fa-dashboard"></i> Transaksi</a></li>
-      <li class="active">Tambah Transaksi</li>
+      <li class="active">Halaman Transaksi</li>
     </ol>
   </section>
 
@@ -22,41 +22,7 @@ include "header.php";
           <div class="box box-primary">
             <!-- form start -->
             <div class="box-body">
-              <div class="form-group">
-                <label for="tanggal">Tanggal </label>
-                <input class="form-control" name="tanggal" id="tanggal" value="<?php echo date('d-m-Y') ?>" readonly>
-              </div>
-
-              <div class="form-group">
-                <label for="nm_user">Data Kasir</label>
-                <?php
-                $dt_user = mysqli_query($koneksi, "SELECT * FROM user where role='Kasir'");
-                while ($user = mysqli_fetch_array($dt_user)) {
-                ?>
-                  <input type="hidden" class="form-control" id="id_user" name="id_user" value="<?php echo $user['id_user']; ?>">
-                  <input type="text" class="form-control" id="nm_user" name="nm_user" value="<?php echo $user['nm_user']; ?>" readonly>
-                <?php } ?>
-              </div>
-              <div class="form-group">
-                <label for="pelanggan">Pilih Pelanggan</label>
-                <select class="form-control" name="pelanggan" id="pelanggan">
-                  <option value="">-- Pilih Plenggan</option>
-                  <?php
-                  $dt_pelanggan = mysqli_query($koneksi, "SELECT * FROM pelanggan");
-                  while ($pelanggan = mysqli_fetch_array($dt_pelanggan)) {
-                  ?>
-                    <option value="<?php echo $p['id_pelanggan']; ?>"><?php echo $pelanggan['nm_pelanggan']; ?></option>
-                  <?php } ?>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box box-primary">
-            <!-- form start -->
-            <div class="box-body">
-              <form method="POST" action="transaksi_proses.php">
+              <form method="POST" action="transaksi_detail_proses.php">
                 <div class="form-group">
                   <label for="id_penjualan">Nomor Transaksi</label>
                   <?php
@@ -110,7 +76,12 @@ include "header.php";
                   <tbody>
                     <?php
                     include "../config/koneksi.php";
-                    $dt_jumlah = mysqli_query($koneksi, "SELECT *, SUM(jml_produk) as jumlah from detail_penjualan INNER JOIN produk ON produk.id_produk = detail_penjualan.id_produk  GROUP BY detail_penjualan.id_produk");
+                    $id_penjualan = $kodeBarang;
+                    $dt_jumlah = mysqli_query($koneksi, "SELECT *, SUM(jml_produk) as jumlah from detail_penjualan 
+                    INNER JOIN produk ON produk.id_produk = detail_penjualan.id_produk
+                    WHERE id_penjualan = '$id_penjualan'
+                    GROUP BY detail_penjualan.id_produk
+                    ");
                     $no = 1;
                     while ($penjualan = mysqli_fetch_array($dt_jumlah)) {
                     ?>
@@ -119,8 +90,11 @@ include "header.php";
                         <td><?php echo $penjualan['nm_produk']; ?></td>
                         <td><?php echo $penjualan['jumlah']; ?></td>
                         <?php
+                        $id_penjualan = $kodeBarang;
                         $id_produk = $penjualan['id_produk'];
-                        $dt_sub_total = mysqli_query($koneksi, "SELECT SUM(sub_total) AS sub_total FROM detail_penjualan WHERE detail_penjualan.id_produk = '$id_produk' ");
+                        $dt_sub_total = mysqli_query($koneksi, "SELECT SUM(sub_total) AS sub_total FROM detail_penjualan 
+                        WHERE detail_penjualan.id_produk = '$id_produk' AND id_penjualan = '$id_penjualan'
+                        ");
                         while ($dt_total = mysqli_fetch_array($dt_sub_total)) { ?>
                         <?php
                           $sub_total = +$dt_total['sub_total'];
@@ -136,7 +110,9 @@ include "header.php";
                     <tr>
                       <?php
                       include "../config/koneksi.php";
-                      $sub_total_belanja = mysqli_query($koneksi, "SELECT SUM(sub_total) AS sub_total FROM detail_penjualan WHERE id_penjualan='2402020001'");
+                      $id_penjualan = $kodeBarang;
+                      $sub_total_belanja = mysqli_query($koneksi, "SELECT SUM(sub_total) AS sub_total FROM detail_penjualan 
+                      WHERE id_penjualan='$id_penjualan'");
                       while ($total_belanja = mysqli_fetch_array($sub_total_belanja)) { ?>
                       <?php
                         $total = +$total_belanja['sub_total'];
@@ -146,10 +122,43 @@ include "header.php";
                     </tr>
                   </tfoot>
                 </table>
-                <button type="submit" class="btn btn-success pull-right">
-                  Simpan
-                </button>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <!-- form start -->
+            <div class="box-body">
+              <div class="form-group">
+                <label for="tanggal">Tanggal </label>
+                <input class="form-control" name="tanggal" id="tanggal" value="<?php echo date('d-m-Y') ?>" readonly>
+              </div>
+              <div class="form-group">
+                <label for="nm_user">Data Kasir</label>
+                <?php
+                $dt_user = mysqli_query($koneksi, "SELECT * FROM user where role='Kasir'");
+                while ($user = mysqli_fetch_array($dt_user)) {
+                ?>
+                  <input type="hidden" class="form-control" id="id_user" name="id_user" value="<?php echo $user['id_user']; ?>">
+                  <input type="text" class="form-control" id="nm_user" name="nm_user" value="<?php echo $user['nm_user']; ?>" readonly>
+                <?php } ?>
+              </div>
+              <div class="form-group">
+                <label for="pelanggan">Pilih Pelanggan</label>
+                <select class="form-control" name="pelanggan" id="pelanggan">
+                  <option value="">-- Pilih Plenggan</option>
+                  <?php
+                  $dt_pelanggan = mysqli_query($koneksi, "SELECT * FROM pelanggan");
+                  while ($pelanggan = mysqli_fetch_array($dt_pelanggan)) {
+                  ?>
+                    <option value="<?php echo $pelanggan['id_pelanggan']; ?>"><?php echo $pelanggan['nm_pelanggan']; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-success pull-right">
+                Simpan
+              </button>
             </div>
           </div>
         </div>

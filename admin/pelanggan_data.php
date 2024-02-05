@@ -20,9 +20,9 @@ include "header.php";
       <div class="col-xs-12">
         <div class="box box-primary">
           <div class="box-header">
-            <a href="index.php?page=pelanggan_tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah-pelanggan"><i class="glyphicon glyphicon-plus"></i>
               Tambah
-            </a>
+            </button>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -48,9 +48,45 @@ include "header.php";
                     <td><?php echo $pelanggan['alamat']; ?></td>
                     <td><?php echo $pelanggan['no_telp']; ?></td>
                     <td>
-                      <a href="index.php?page=pelanggan_ubah&id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-warning" role="button" title="Edit Data"><i class="glyphicon glyphicon-edit"></i></a>
-                      <a href="index.php?page=pelanggan_detail&id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
-                      <a href="index.php?page=pelanggan_hapus.php?id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
+                      <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#edit-pelanggan<?php echo $pelanggan['id_pelanggan']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
+
+                      <!-- Modal Edit Pelanggan -->
+                      <div class="modal fade" id="edit-pelanggan<?php echo $pelanggan['id_pelanggan']; ?>">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title">Edit Data Pelanggan</h4>
+                            </div>
+                            <form method="POST" action="pelanggan_update.php">
+                              <div class="modal-body">
+                                <div class="form-group">
+                                  <label for="nm_pelanggan">Nama Pelanggan</label>
+                                  <input type="hidden" class="form-control" id="nm_pelanggan" name="id_pelanggan" value="<?php echo $pelanggan['id_pelanggan']; ?>">
+                                  <input type="text" class="form-control" id="nm_pelanggan" name="nm_pelanggan" value="<?php echo $pelanggan['nm_pelanggan']; ?>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="alamat">Alamat</label>
+                                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $pelanggan['alamat']; ?>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="no_hp">No. HP</label>
+                                  <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $pelanggan['no_telp']; ?>">
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-info pull-right">Update</button>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
+
+                      <a href="pelanggan_hapus.php?id_pelanggan=<?= $pelanggan['id_pelanggan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>
               <?php } ?>
@@ -68,6 +104,44 @@ include "header.php";
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<!-- Modal Tambah Pelanggan-->
+<div class="modal fade" id="tambah-pelanggan">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Tambah Data Pelanggan</h4>
+      </div>
+      <form method="POST" action="pelanggan_proses.php">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="nm_pelanggan">Nama Pelanggan</label>
+            <input type="text" class="form-control" id="nm_pelanggan" name="nm_pelanggan">
+          </div>
+          <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control" id="alamat" name="alamat">
+          </div>
+          <div class="form-group">
+            <label for="no_hp">No. HP</label>
+            <input type="text" class="form-control" id="no_hp" name="no_hp">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info pull-right">Simpan</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
 <?php
 include "footer.php";
 ?>
