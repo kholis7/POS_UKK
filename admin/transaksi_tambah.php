@@ -132,7 +132,7 @@ include "header.php";
             <div class="box-body">
               <div class="form-group">
                 <label for="tanggal">Tanggal </label>
-                <input class="form-control" name="tanggal" id="tanggal" value="<?php echo date('d-m-Y') ?>" readonly>
+                <input class="form-control" name="tanggal" id="tanggal" value="<?php echo date('Y-m-d') ?>" readonly>
               </div>
               <div class="form-group">
                 <label for="nm_user">Data Kasir</label>
