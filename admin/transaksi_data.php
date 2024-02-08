@@ -38,15 +38,16 @@ include "header.php";
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <?php
-                  $dt_penjualan = mysqli_query($koneksi, "SELECT * FROM penjualan
+                <?php
+                $id_user = $_SESSION['id_user'];
+                $dt_penjualan = mysqli_query($koneksi, "SELECT * FROM penjualan
                   INNER JOIN pelanggan ON pelanggan.id_pelanggan = penjualan.id_pelanggan
-                  INNER JOIN user ON user.id_user = penjualan.id_pelanggan
+                  INNER JOIN user ON user.id_user = penjualan.id_user
                   ");
-                  $no = 1;
-                  while ($penjualan = mysqli_fetch_array($dt_penjualan)) {
-                  ?>
+                $no = 1;
+                while ($penjualan = mysqli_fetch_array($dt_penjualan)) {
+                ?>
+                  <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $penjualan['tgl_penjualan']; ?></td>
                     <td><?php echo $penjualan['nm_pelanggan']; ?></td>
@@ -57,8 +58,8 @@ include "header.php";
                       <a href="index.php?page=transaksi_detail&id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
                       <a href="index.php?page=transaksi_hapus.php?id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
-                  <?php } ?>
-                </tr>
+                  </tr>
+                <?php } ?>
               </tbody>
             </table>
           </div>

@@ -49,7 +49,6 @@ include "header.php";
                     <td><?php echo $pelanggan['no_telp']; ?></td>
                     <td>
                       <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#edit-pelanggan<?php echo $pelanggan['id_pelanggan']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
-
                       <!-- Modal Edit Pelanggan -->
                       <div class="modal fade" id="edit-pelanggan<?php echo $pelanggan['id_pelanggan']; ?>">
                         <div class="modal-dialog">
@@ -139,8 +138,6 @@ include "header.php";
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-
 
 <?php
 include "footer.php";

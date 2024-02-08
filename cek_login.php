@@ -1,7 +1,7 @@
 <?php
 include "config/koneksi.php";
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 $role = $_POST['role'];
 
 
@@ -10,7 +10,7 @@ $cek = mysqli_num_rows($login);
 
 if ($cek > 0) {
   $data = mysqli_fetch_assoc($login);
-  if ($data['role'] == 'Administrator') {
+  if ($data['role'] == 'Admin') {
     session_start();
     $_SESSION['id_user'] = $data['id_user'];
     $_SESSION['nm_user'] = $data['nm_user'];
