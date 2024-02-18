@@ -89,7 +89,7 @@ include "header.php";
             <div class="box box-primary">
               <div class="box-body">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="total" id="total" value="<?php echo $total; ?>" readonly>
+                  <input type="text" class="form-control" name="total" id="total" value="<?php echo "Rp. " . number_format($total) . " ,-"; ?>" readonly>
                 </div>
                 <div class="form-group">
                   <label for="tanggal">Tanggal </label>
@@ -166,7 +166,7 @@ include "header.php";
               $dt_produk = mysqli_query($koneksi, "SELECT * FROM produk");
               while ($produk = mysqli_fetch_array($dt_produk)) {
               ?>
-                <option value="<?php echo $produk['id_produk']; ?>"><?php echo $produk['nm_produk']; ?></option>
+                <option value="<?php echo $produk['id_produk']; ?>"><?php echo $produk['nm_produk'] . "(" . $produk['stok'] . ")"; ?></option>
               <?php } ?>
             </select>
           </div>

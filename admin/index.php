@@ -21,10 +21,15 @@ include "header.php"
     <div class="row">
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+          <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
           <div class="info-box-content">
-            <span class="info-box-text">CPU Traffic</span>
-            <span class="info-box-number">90<small>%</small></span>
+            <span class="info-box-text">Data Pelanggan</span>
+            <span class="info-box-number">
+              <?php
+              $pelanggan = mysqli_query($koneksi, "SELECT * from pelanggan ");
+              echo mysqli_num_rows($pelanggan);
+              ?>
+            </span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -33,11 +38,16 @@ include "header.php"
       <!-- /.col -->
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+          <span class="info-box-icon bg-red"><i class="fa fa-cart-plus"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">Likes</span>
-            <span class="info-box-number">41,410</span>
+            <span class="info-box-text">Data Produk</span>
+            <span class="info-box-number">
+              <?php
+              $produk = mysqli_query($koneksi, "SELECT * from produk ");
+              echo mysqli_num_rows($produk);
+              ?>
+            </span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -50,11 +60,15 @@ include "header.php"
 
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-
+          <span class="info-box-icon bg-green"><i class="fa fa-bar-chart"></i></span>
           <div class="info-box-content">
-            <span class="info-box-text">Sales</span>
-            <span class="info-box-number">760</span>
+            <span class="info-box-text">Data Transaksi</span>
+            <span class="info-box-number">
+              <?php
+              $penjualan = mysqli_query($koneksi, "SELECT * from penjualan");
+              echo mysqli_num_rows($penjualan);
+              ?>
+            </span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -63,11 +77,21 @@ include "header.php"
       <!-- /.col -->
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+          <span class="info-box-icon bg-yellow"><i class="fa fa-money"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">New Members</span>
-            <span class="info-box-number">2,000</span>
+            <span class="info-box-text">Total Transaksi</span>
+            <span class="info-box-number">
+              <?php
+              $total_transaksi = mysqli_query($koneksi, "SELECT SUM(total) AS jml_total FROM penjualan");
+              while ($t_trans = mysqli_fetch_array($total_transaksi)) { ?>
+              <?php
+                $total = +$t_trans['jml_total'];
+              } ?>
+              <?php
+              echo "Rp. " . number_format($total) . " ,-";
+              ?>
+            </span>
           </div>
           <!-- /.info-box-content -->
         </div>

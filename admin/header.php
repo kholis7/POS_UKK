@@ -2,8 +2,9 @@
 include "../config/koneksi.php";
 
 session_start();
-// cek apakah yang mengakses halaman ini sudah login
-if ($_SESSION['level'] == "") {
+// Membuat sebuah kondisi untuk melakukan pengecekan
+// apakah yang mengakses halaman ini sudah login atau belum
+if ($_SESSION['role'] == "") {
   header("location:../index.php");
 }
 ?>
@@ -68,7 +69,16 @@ if ($_SESSION['level'] == "") {
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="../assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                <span class="hidden-xs">Alexander Pierce</span>
+                <span class="hidden-xs">
+                  <?php
+                  $id_user = $_SESSION['id_user'];
+                  $dt_user = mysqli_query($koneksi, "SELECT * FROM user where id_user = '$id_user' ");
+                  while ($user = mysqli_fetch_array($dt_user)) {
+                  ?>
+                  <?php
+                    echo $user['nm_user'];
+                  } ?>
+                </span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -76,17 +86,19 @@ if ($_SESSION['level'] == "") {
                   <img src="../assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                   <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2012</small>
+                    <?php
+                    $dt_user = mysqli_query($koneksi, "SELECT * FROM user where id_user = '$id_user' ");
+                    while ($user = mysqli_fetch_array($dt_user)) {
+                    ?>
+                    <?php
+                      echo $user['nm_user'] . "<small> Username : " . $user['username'] . "</small>";
+                    } ?>
                   </p>
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="logout.php" class="btn btn-danger btn-flat">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -105,7 +117,15 @@ if ($_SESSION['level'] == "") {
             <img src="../assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-            <p>Alexander Pierce</p>
+            <p>
+              <?php
+              $dt_user = mysqli_query($koneksi, "SELECT * FROM user where id_user = '$id_user' ");
+              while ($user = mysqli_fetch_array($dt_user)) {
+              ?>
+              <?php
+                echo $user['nm_user'];
+              } ?>
+            </p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
@@ -149,6 +169,7 @@ if ($_SESSION['level'] == "") {
               <i class="fa fa-book"></i> <span>Laporan Transaksi</span>
             </a>
           </li>
+        </ul>
       </section>
       <!-- /.sidebar -->
     </aside>

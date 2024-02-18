@@ -63,7 +63,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat ">Sign In</button>
+            <button type="submit" class="btn btn-primary pull-right ">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
