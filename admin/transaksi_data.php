@@ -54,9 +54,9 @@ include "header.php";
                     <td><?php echo $penjualan['nm_user']; ?></td>
                     <td><?php echo "Rp. " . number_format($penjualan['total']) . " ,-"; ?></td>
                     <td>
-                      <a href="index.php?page=transaksi_ubah&id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-warning" role="button" title="Edit Data"><i class="glyphicon glyphicon-edit"></i></a>
-                      <a href="index.php?page=transaksi_detail&id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
-                      <a href="index.php?page=transaksi_hapus.php?id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
+                      <a href="transaksi_invoice_cetak.php?id_penjualan=<?= $penjualan['id_penjualan']; ?>" target="_blank" class="btn btn-xs btn-warning" role="button" title="Invoice"><i class="fa fa-print"></i></a>
+                      <a href="transaksi_detail?id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-success" role="button" title="Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
+                      <a href="transaksi_hapus.php?id_penjualan=<?= $penjualan['id_penjualan']; ?>" class="btn btn-xs btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                   </tr>
                 <?php } ?>

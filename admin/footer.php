@@ -8,11 +8,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- menampilkan harga barang -->
-<script>
-
-</script>
-
 <!-- Bootstrap 3.3.7 -->
 <script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -32,6 +27,7 @@
 <script src="../assets/dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../assets/dist/js/demo.js"></script>
+
 </body>
 
 </html>

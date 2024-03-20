@@ -141,7 +141,7 @@ include "header.php";
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Tambah Pembelian</h4>
+        <h4 class="modal-title">Pilih Produk</h4>
       </div>
       <form method="POST" action="transaksi_detail_proses.php">
         <div class="modal-body">
